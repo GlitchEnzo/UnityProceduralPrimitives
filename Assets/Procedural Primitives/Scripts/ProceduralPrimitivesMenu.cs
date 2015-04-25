@@ -1,0 +1,82 @@
+using UnityEngine;
+using UnityEditor;
+using System.Collections;
+
+public class ProceduralPrimitivesMenu : EditorWindow
+{
+    PrimitiveType primitiveType = PrimitiveType.Box;
+
+    float width = 1;
+    float height = 1;
+    float depth = 1;
+
+    int widthDivisions = 10;
+    int depthDivisions = 10;
+
+    float radius = 0.5f;
+    int stacks = 20;
+    int slices = 20;
+
+    float topRadius = 0.5f;
+    float bottomRadius = 0.5f;
+    float length = 1;
+
+    [MenuItem("GameObject/Create Other/Procedural Primitive")]
+    public static void ShowWindow()
+    {
+        EditorWindow.GetWindow<ProceduralPrimitivesMenu>();
+    }
+
+    void OnGUI()
+    {
+        GUILayout.Label("Create Procedural Primitive", EditorStyles.boldLabel);
+
+        primitiveType = (PrimitiveType)EditorGUILayout.EnumPopup("Select shape: ", primitiveType);
+
+        switch (primitiveType)
+        {
+            case PrimitiveType.Box:
+                width = EditorGUILayout.Slider("Width: ", width, 0.01f, 1000);
+                height = EditorGUILayout.Slider("Height: ", height, 0.01f, 1000);
+                depth = EditorGUILayout.Slider("Depth: ", depth, 0.01f, 1000);
+                break;
+            case PrimitiveType.Cylinder:
+                bottomRadius = EditorGUILayout.Slider("Bottom Radius: ", bottomRadius, 0.0f, 1000);
+                topRadius = EditorGUILayout.Slider("Top Radius: ", topRadius, 0.0f, 1000);
+                length = EditorGUILayout.Slider("Length: ", length, 0.01f, 1000);
+                stacks = EditorGUILayout.IntSlider("Stacks: ", stacks, 1, 256);
+                slices = EditorGUILayout.IntSlider("Slices: ", slices, 1, 256);
+                break;
+            case PrimitiveType.Plane:
+                width = EditorGUILayout.Slider("Width: ", width, 0.01f, 1000);
+                depth = EditorGUILayout.Slider("Depth: ", depth, 0.01f, 1000);
+                widthDivisions = EditorGUILayout.IntSlider("Width Divisions: ", widthDivisions, 1, 254);
+                depthDivisions = EditorGUILayout.IntSlider("Depth Divisions: ", depthDivisions, 1, 254);
+                break;
+            case PrimitiveType.Sphere:
+                radius = EditorGUILayout.Slider("Radius: ", radius, 0.01f, 1000);
+                stacks = EditorGUILayout.IntSlider("Stacks: ", stacks, 1, 256);
+                slices = EditorGUILayout.IntSlider("Slices: ", slices, 1, 256);
+                break;
+        }
+
+        if (GUILayout.Button("Create"))
+        {
+            switch (primitiveType)
+            {
+                case PrimitiveType.Box:
+                    Primitive.CreateBoxGameObject(width, height, depth);
+                    break;
+                case PrimitiveType.Cylinder:
+                    Primitive.CreateCylinderGameObject(bottomRadius, topRadius, length, slices, stacks);
+                    break;
+                case PrimitiveType.Plane:
+                    Primitive.CreatePlaneGameObject(width, depth, widthDivisions, depthDivisions);
+                    break;
+                case PrimitiveType.Sphere:
+                    Primitive.CreateSphereGameObject(radius, slices, stacks);
+                    break;
+            }
+        }
+    }
+}

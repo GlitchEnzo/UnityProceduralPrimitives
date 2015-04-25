@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 8eac9400ca97d0647b8d4905b5a8497c
+labels:
+- procedural
+- primitive
+- C#
+- mesh
+- collider
+- cone
+- cylinder
+- box
+- plane
+- sphere
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

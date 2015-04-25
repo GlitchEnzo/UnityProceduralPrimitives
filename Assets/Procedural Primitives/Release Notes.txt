@@ -1,0 +1,17 @@
+2.0 (January 2014)
+- Rewrote all methods from scratch as extention methods for Unity Mesh and GameObject classes
+- Added new test scene to show complete configurability during runtime
+- Added Circle, Ring, Torus, Torus Knot, and Lathe shapes
+- Added ability to change the number of subdivisions along all three axes of a Box shape
+- Added ability to toggle on/off the end caps of a Cylinder shape
+- Added ability to set angles in order to produce partial Sphere shapes
+
+1.2 (September 12, 2011)
+- Changed custom Editor Window to have a smaller range on the sliders to prevent the vertex count from exceeding 65,000 and throwing an error.
+
+1.1 (August 22, 2011)
+- Added a custom Editor Window that allows creation of the shapes inside of the Editor itself.
+
+1.0 (June 28, 2011)
+- Initial Release
+- Added Cylinder (Cone), Box, Sphere, and Plane shapes

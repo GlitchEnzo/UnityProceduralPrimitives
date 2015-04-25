@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bb3b752ff2b3f4248b4995ada362b3b4
+labels:
+- procedural
+- primitive
+- C#
+- mesh
+- collider
+- cone
+- cylinder
+- box
+- plane
+- sphere
+TextScriptImporter:
+  userData: 
