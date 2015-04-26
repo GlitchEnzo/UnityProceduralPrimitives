@@ -1,3 +1,6 @@
+2.1 (April 2015)
+- Updated to Unity 5.0.0
+
 2.0 (January 2014)
 - Rewrote all methods from scratch as extention methods for Unity Mesh and GameObject classes
 - Added new test scene to show complete configurability during runtime
