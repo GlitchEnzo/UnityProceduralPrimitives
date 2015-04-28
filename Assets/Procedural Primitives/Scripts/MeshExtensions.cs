@@ -380,7 +380,7 @@ public static class MeshExtensions
 		List<Vector3> vertices = new List<Vector3>();
 		List<int> triangles = new List<int>();
 
-		var inversePointLength = 1.0f / ( points.Count - 1 );
+		////var inversePointLength = 1.0f / ( points.Count - 1 );
 		var inverseSegments = 1.0f / segments;
 		
 		for (var i = 0; i <= segments; i++) 
@@ -673,7 +673,7 @@ public static class MeshExtensions
 		
 		List<Vector2> uvs = new List<Vector2>();
 		List<Vector3> vertices = new List<Vector3>();
-		List<Vector3> normals = new List<Vector3>();
+		////List<Vector3> normals = new List<Vector3>();
 		List<int> triangles = new List<int>();
 
 		int[][] grid = new int[radialSegments][];
@@ -731,10 +731,10 @@ public static class MeshExtensions
 				var c = grid[ ip ][ jp ];
 				var d = grid[ i ][ jp ];
 				
-				var uva = new Vector2( i / (float)radialSegments, j / (float)tubularSegments );
-				var uvb = new Vector2( ( i + 1 ) / (float)radialSegments, j / (float)tubularSegments );
-				var uvc = new Vector2( ( i + 1 ) / (float)radialSegments, ( j + 1 ) / (float)tubularSegments );
-				var uvd = new Vector2( i / (float)radialSegments, ( j + 1 ) / (float)tubularSegments );
+				////var uva = new Vector2( i / (float)radialSegments, j / (float)tubularSegments );
+				////var uvb = new Vector2( ( i + 1 ) / (float)radialSegments, j / (float)tubularSegments );
+				////var uvc = new Vector2( ( i + 1 ) / (float)radialSegments, ( j + 1 ) / (float)tubularSegments );
+				////var uvd = new Vector2( i / (float)radialSegments, ( j + 1 ) / (float)tubularSegments );
 
 				triangles.Add(a);
 				triangles.Add(b);
@@ -744,11 +744,11 @@ public static class MeshExtensions
 				triangles.Add(c);
 				triangles.Add(d);
 				
-				//this.faces.push( new THREE.Face3( a, b, d ) );
-				//this.faceVertexUvs[ 0 ].push( [ uva, uvb, uvd ] );
+				////this.faces.push( new THREE.Face3( a, b, d ) );
+				////this.faceVertexUvs[ 0 ].push( [ uva, uvb, uvd ] );
 				
-				//this.faces.push( new THREE.Face3( b, c, d ) );
-				//this.faceVertexUvs[ 0 ].push( [ uvb.clone(), uvc, uvd.clone() ] );
+				////this.faces.push( new THREE.Face3( b, c, d ) );
+				////this.faceVertexUvs[ 0 ].push( [ uvb.clone(), uvc, uvd.clone() ] );
 			}
 		}
 
@@ -879,7 +879,7 @@ public static class MeshExtensions
 			radius += radiusStep;
 		}
 		
-		var n = new Vector3( 0, 0, 1 );
+		////var n = new Vector3( 0, 0, 1 );
 		
 		for (int i = 0; i < phiSegments; i++)  // concentric circles inside ring
 		{

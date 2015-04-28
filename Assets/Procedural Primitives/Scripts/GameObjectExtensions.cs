@@ -28,7 +28,7 @@ public static class GameObjectExtensions
     public static MeshRenderer AddMeshRenderer(this GameObject gameObject)
     {
         MeshRenderer meshRenderer = gameObject.AddComponent<MeshRenderer>();
-        meshRenderer.castShadows = false;
+		meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
         meshRenderer.receiveShadows = false;
 
         return meshRenderer;
