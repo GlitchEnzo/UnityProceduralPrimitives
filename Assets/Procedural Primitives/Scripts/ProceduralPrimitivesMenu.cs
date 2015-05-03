@@ -85,6 +85,36 @@ namespace ProceduralPrimitives
                         break;
                 }
             }
+
+			bool isNull = Camera.main.targetTexture == null;
+
+			if (isNull)
+			{
+				RenderTexture rt = new RenderTexture(100, 100, 0);
+				Camera.main.targetTexture = rt;
+			}
+
+			RenderTexture currentRT = RenderTexture.active;
+			RenderTexture.active = Camera.main.targetTexture;
+			Camera.main.Render();
+
+			if (Camera.main.targetTexture  == null)
+			{
+				Debug.Log("Camera is null");
+				return;
+			}
+
+			Texture2D image = new Texture2D(Camera.main.targetTexture.width, Camera.main.targetTexture.height);
+			image.ReadPixels(new Rect(0, 0, Camera.main.targetTexture.width, Camera.main.targetTexture.height), 0, 0);
+			image.Apply();
+
+			RenderTexture.active = currentRT;
+			EditorGUI.DrawPreviewTexture(GUILayoutUtility.GetRect(100, 100), image);
+
+			if (isNull)
+			{
+				Camera.main.targetTexture = null;
+			}
         }
     }
 
